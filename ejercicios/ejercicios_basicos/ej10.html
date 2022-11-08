@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function conversion() {
+            let celsius;
+            do{
+                celsius = Number(prompt("Dime tu temperatura en celsius"));
+                if(isNaN(celsius)) alert("Introduce un valor válido");
+            }while(isNaN(celsius));
+            let fahrenheit = (celsius * (9 / 5)) + 32;
+            alert(celsius+"ºC son: "+fahrenheit+"ºF");
+        }
+        function termometro(fahrenheit) {
+            if (fahrenheit >= 14 && fahrenheit < 32) {
+                alert("Temperatura demasiado baja");
+            } else if (fahrenheit >= 32 && fahrenheit < 68) {
+                alert("Temperatura adecuada");
+            } else if (fahrenheit >= 68 && fahrenheit <= 86) {
+                alert("Temperaturada alta");
+            } else {
+                alert("Temperatura desconocida");
+            }
+        }
+        function conversionv2() {
+            let fahrenheit;
+            do{
+                fahrenheit = Number(prompt("Dime tu temperatura en fahrenheit"));
+                if (isNaN(fahrenheit)) alert("Introduce un valor válido");
+            }while(isNaN(fahrenheit));
+            let celsius = (fahrenheit - 32) * (5 / 9);
+            alert(fahrenheit+"ºF son: "+celsius+"ºC");
+        }
+        /* termometro(conversion());
+        conversionv2(); */
+    </script>
+</head>
+
+<body>
+    <button onclick="conversion()">Iniciar converison ºC a ºF</button>
+    <br/>
+    <button onclick="conversionv2()">Iniciar converison ºF a ºC</button>
+</body>
+
+</html>

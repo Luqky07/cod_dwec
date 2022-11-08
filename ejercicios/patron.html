@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let texto = prompt("Introduce el texto a analizar").toUpperCase();
+        let cont = 0;
+        /* let arrayText = texto.split("");
+        for (let i = 0; i < arrayText.length; i++) {
+            let posSol = "";
+            if (arrayText[i] == 0) {
+                posSol = arrayText[i] + arrayText[i+1];
+                if (posSol == 00) cont++;
+            }
+            if (arrayText[i] == 1) {
+                posSol = arrayText[i] + arrayText[i+1] + arrayText[i+2];
+                if (posSol == 101) cont++;
+            }
+            if (arrayText[i] == "A") {
+                posSol = arrayText[i] + arrayText[i+1] + arrayText[i+2];
+                if (posSol == 'ABC') cont++;
+            }
+            if (arrayText[i] == "H") {
+                posSol = arrayText[i] + arrayText[i+1];
+                if (posSol == 'HO') cont++;
+            }
+        } */
+        let patron = ["00","101","ABC","HO"];
+        for(p of patron){
+            cont += encontrarPatron(texto,p);
+        }
+        function encontrarPatron(txt, patron){
+            let texto = String(txt);
+            let p = String(patron)
+            let cont = 0;
+            for(let i=0; i < texto.lenght; i++){
+                let sub = texto.substring(i,i+p.length);
+                console.log(sub);
+                if(texto.substring(i,i+p.lenght)==patron) cont++;
+            }
+            return cont;
+        }
+        console.log("Patrones encontrados = "+cont);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        /*
+        let altura;
+        console.log(altura);
+        console.log(peso);
+        
+        let someResource;
+        console.log(someResource);
+        console.log(typeof someResource);
+        someResource = null;
+        console.log(someResource);
+        console.log(typeof someResource);
+        
+        let prueba = "22";
+        prueba = parseInt(prueba);
+        prueba += 2;
+        alert(prueba);
+        
+        let num = 42 - "2";
+        console.log(num);
+        console.log(typeof num);
+        */
+       function mult(a,b){
+        return a*b;
+       }
+       let num1 = function(a,b){return a*b;};
+       let num2 = new Function ("a","b","return a + b;");
+       let res = num2(5,2);
+       console.log(res);
+    
+      /*
+      function saludo(){
+        alert("Hola");
+      }
+      let saludar = saludo;
+      alert(saludar);
+      */
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

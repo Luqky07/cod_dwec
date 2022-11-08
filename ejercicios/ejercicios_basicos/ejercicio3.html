@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function pedirNumero(pregunta) {
+            let num;
+            do {
+                num = Number(prompt(pregunta));
+                if (isNaN(num)) {
+                    window.alert("Escribe un número valido");
+                }
+            } while (isNaN(num));
+            return num;
+        }
+        let num1 = pedirNumero("Dime tu primer número");
+        let num2 = pedirNumero("Dime tu segundo número");
+        let res = "";
+        if (num1 < num2) {
+            for (var i = num1 + 1; i < num2; i++) {
+                res += i;
+                if (i < num2 - 1) {
+                    res += ", ";
+                }
+            }
+            window.alert("Los números comprendidos entre " + num1 + " y " + num2 +
+                " son: " + res);
+        } else if (num1 > num2) {
+            for (var i = num2 + 1; i < num1; i++) {
+                res += i;
+                if (i < num1 - 1) {
+                    res += ", ";
+                }
+            }
+            window.alert("Los números comprendidos entre " + num2 + " y " + num1 +
+                " son: " + res);
+        } else {
+            window.alert("Tus números son iguales");
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

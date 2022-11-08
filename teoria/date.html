@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function mostrarFecha() {
+            var fechaHoy = new Date();
+            /*
+            var miFecha = fechaHoy.getMonth()+"/"+fechaHoy.getDate()+"/"+fechaHoy.getFullYear();
+            var hora = fechaHoy.getHours()+":"+fechaHoy.getMinutes()+":"+fechaHoy.getSeconds();
+            */
+            var hora = "";
+            if (fechaHoy.getHours() > 12) {
+                hora += (fechaHoy.getHours() - 12) + ":";
+            } else {
+                hora += fechaHoy.getHours() + ":";
+            }
+            hora += fechaHoy.getMinutes()+":"+fechaHoy.getSeconds();
+            document.getElementById("fecha").innerHTML = hora;
+        }
+    </script>
+</head>
+
+<body>
+    <p id="fecha"></p>
+    <script>mostrarFecha();</script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let unicode = '\u{004d}';
+        let emoji = '\u{26a1}';
+        let car = '\u{1f697}';
+        let separado = car.split("");
+        let pegamento = '\u{200d}';
+        let marido = '\u{1f468}';
+        let mujer = '\u{1f469}';
+        let niño = '\u{1f466}';
+        let niña = '\u{1f467}';
+        alert([marido,mujer,niño,niña].join(""));
+        alert([marido,mujer,niña,niño].join(pegamento));
+        alert([marido,niña].join(pegamento));
+        alert([marido,marido,niña,niño].join(pegamento));
+        alert('\u{1F469}\u{200D}\u{2764}\u{FE0F}\u{200D}\u{1F48B}\u{200D}\u{1F468}');
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

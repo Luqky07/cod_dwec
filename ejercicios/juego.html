@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let numRandom = Math.ceil(Math.random() * 100);
+        let miNum;
+        let intentos = 0;
+        console.log(numRandom);
+        do {
+            miNum = Number(prompt("Introduce tu número"));
+            if(miNum<numRandom){
+                alert("El número es mayor");
+            }else if(miNum>numRandom){
+                alert("El número es menor");
+            }
+            intentos++;
+        } while (miNum != numRandom);
+        alert("Felicidades, has acertado, has tardado "+intentos+" intentos.");
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const COD = "68573528467604";
+        /* let posFinal = cod.length-1;
+        let total = 0;
+        for(let i = posFinal; i>0; i-=2){
+            total += Number(cod.charAt(i));
+            total -= NUmber(COD.charAt(i-1));
+        }
+        alert("Han llegado "+total+" pasajeros\u{1f682}"); */
+        /* let arr = COD.split("");
+        arr.reverse();
+        let total = 0;
+        while(arr.length!=0){
+            total += Number(arr.shift());
+            total -= Number(arr.shift());
+        } */
+        let estacion = new Array;
+        for(let i = 0; i<COD.length; i+=2){
+            estacion.push([Number(COD.charAt(i)),Number(COD.charAt(i+1))]);
+        }
+        for(e of estacion){
+            e.reverse();
+        }
+        console.log(estacion);
+        let res = (estacion) => estacion.reduce((acumulador,[suben,bajan]) => acumulador + suben -bajan,0);
+        alert("Han llegado "+res(estacion)+" pasajeros\u{1f682}");
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

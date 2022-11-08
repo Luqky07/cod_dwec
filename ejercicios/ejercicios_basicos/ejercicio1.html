@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let num1 = pedirNumero("Dime un número");
+        let num2 = pedirNumero("Dime otro número");
+        function pedirNumero(pregunta) {
+            let num;
+            do {
+                num = Number(prompt(pregunta));
+                if (isNaN(num) || num < 0) {
+                    window.alert("Escribe un número valido");
+                }
+            } while (isNaN(num) || num < 0);
+            return num;
+        }
+        console.log(num1);
+        console.log(num2);
+        if (num1 > num2) {
+            window.alert(num1 + " es mayor que " + num2);
+        } else if (num1 < num2) {
+            window.alert(num2 + " es mayor que " + num1);
+        } else{
+            window.alert(num1 + " y " + num2 + " son iguales");
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

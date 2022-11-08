@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function pedirNumero(pregunta){
+            let num;
+            do{
+                num = Number(prompt(pregunta));
+                if(isNaN(num)||num<=0){
+                    window.alert("Introduce un número valido");
+                }
+            }while(isNaN(num)||num<=0);
+            return num;
+        }
+        let num = pedirNumero("De que número quieres ver la tabla de multiplicar");
+        let res ="";
+        for(var i = 1; i<=10;i++){
+            res += num + " x " + i + " = " + (num*i);
+            if(i<10){
+                res += "\n";
+            }
+        }
+        window.alert(res);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

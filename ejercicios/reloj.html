@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="reloj"></p>
+    <script>
+        let fecha = new Date();
+        let hours = fecha.getHours();
+        let minutes = fecha.getMinutes();
+        let newSeconds = setInterval(newReloj, 1000);
+        function newReloj(){
+            let fecha = new Date();
+            document.getElementById("reloj").innerHTML = hours + ":" + minutes + ":" + fecha.getSeconds();
+            if(fecha.getSeconds() == 0){
+                minutes = fecha.getMinutes();
+                document.getElementById("reloj").innerHTML = hours + ":" + minutes + ":" + fecha.getSeconds();
+            }
+            if(minutes == 0 && fecha.getSeconds() == 0){
+                hours = fecha.getHours();
+                document.getElementById("reloj").innerHTML = hours + ":" + minutes + ":" + fecha.getSeconds();
+            }
+        }
+    </script>
+    <button onclick="clearTimeout(newSeconds)">Cancelar reloj</button>
+</body>
+</html>

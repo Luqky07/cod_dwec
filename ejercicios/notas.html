@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        let nota = 12;
+        /*
+        if (nota <= 10 || nota >= 1) {
+            alert("No es una nota válida en España");
+        } else if (nota < 5) {
+            alert("Has suspendido");
+        } else if (nota == 5) {
+            alert("Has aprobado con un suficiente");
+        } else if (nota == 6) {
+            alert("Has aprobado con un bien");
+        } else if (nota > 6 && nota < 9) {
+            alert("Has aprobado con un notable");
+        } else {
+            alert("Has aprobado con un sobresaliente");
+        }
+        */
+        switch (nota) {
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+                alert("Has suspendido");
+                break;
+            case 5:
+                alert("Has aprobado con un suficiente");
+                break;
+            case 6:
+                alert("Has aprobado con un bien");
+                break;
+            case 7:
+            case 8:
+                alert("Has aprobado con un notable");
+                break;
+            case 9:
+            case 10:
+                alert("Has aprobado con un sobresaliente");
+                break;
+            default:
+                alert("No es una nota válida para España");
+                break;
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

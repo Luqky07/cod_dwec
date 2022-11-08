@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function pedirNumero(pregunta) {
+            let num;
+            do {
+                num = Number(prompt(pregunta));
+                if (isNaN(num) || num <= 0) {
+                    window.alert("Introduce un número valido");
+                }
+            } while (isNaN(num) || num <= 0);
+            return num;
+        }
+        let num1 = pedirNumero("Dime tu primer número");
+        let num2 = pedirNumero("Dime tu segundo número");
+        if (num1 < num2) {
+            let multiplo = false
+            for (var i = 1; i < num2; i++) {
+                if ((i * num1) == num2) {
+                    multiplo = true;
+                    break;
+                }
+            }
+            if (multiplo == true) {
+                window.alert(num2 + " es multiplo de " + num1);
+            } else {
+                window.alert(num2 + " NO es multiplo de " + num1);
+            }
+        } else if (num1 > num2) {
+            let multiplo = false
+            for (var i = 1; i < num1; i++) {
+                if ((i * num2) == num1) {
+                    multiplo = true;
+                    break;
+                }
+            }
+            if (multiplo == true) {
+                window.alert(num1 + " es multiplo de " + num2);
+            } else {
+                window.alert(num1 + " NO es multiplo de " + num2);
+            }
+        } else {
+            window.alert(num1 + " y " + num2 + " son iguales.");
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

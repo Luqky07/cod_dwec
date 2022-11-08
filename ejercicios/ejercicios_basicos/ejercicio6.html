@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function pedirNumero(pregunta){
+            let num;
+            do{
+                num = Number(prompt(pregunta));
+                if(isNaN(num)||num<=0){
+                    window.alert("Introduce un número valido");
+                }
+            }while(isNaN(num)||num<=0);
+            return num;
+        }
+        let num = pedirNumero("Dame un número y te dire si es par");
+        /* function par(num){
+            return ((num%2)==0) ? (num + " es par.") : (num + " es impar");
+        } */
+        let sol = (num) => num%2==0 ? (num + " es par.") : (num + " es impar");
+        alert(sol(num));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let miVentana;
+        function crearVentana(){
+            miVentana = window.open("redireccion.html","","width=500, height=500");
+        }
+        function cerrarVentana(){
+            if(confirm("Seguro que quiere cerrar la ventana") == true){
+                miVentana = window.close();
+            }
+        }
+        function redimensionarVentana(){
+            miVentana = window.resizeBy(20,20);
+        }
+        function moverVentana(){
+            miVentana = window.moveBy(50,5);
+        }
+        function enfocar(){
+            miVentana = window.focus();
+        }
+        function imprimir(){
+            print();
+            miVentana = window.print();
+        }
+        //"","","width=500,height=500"
+    </script>
+    <button onclick="crearVentana()">Abrir google</button>
+    <br/>
+    <button onclick="cerrarVentana()">Cerrar ventana</button>
+    <br/>
+    <button onclick="redimensionarVentana()">Redimensionar ventana</button>
+    <br/>
+    <button onclick="moverVentana()">Mover ventana</button>
+    <br/>
+    <button onclick="enfocar()">Focus ventana</button>
+    <br/>
+    <button onclick="imprimir()">Imprimir ventana</button>
+</body>
+</html>

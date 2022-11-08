@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <p id="muestra"></p>
+    <script>
+        let texto = "";
+        texto += "appCodeName: " + navigator.appCodeName + "<br/>";
+        texto += "appName: " + navigator.appName + "<br/>";
+        texto += "appVerion: " + navigator.appVersion + "<br/>";
+        texto += "product: " + navigator.product + "<br/>";
+        texto += "platform: " + navigator.platform + "<br/>";
+        texto += "onLine: " + navigator.onLine + "<br/>";
+        texto += "languaje: " + navigator.language + "<br/>";
+        texto += "cookieEnabled: " + navigator.cookieEnabled + "<br/>";
+        texto += "userAgent: " + navigator.userAgent + "<br/>";
+        texto += "Java activado: "+navigator.javaEnabled();
+        document.getElementById("muestra").innerHTML = texto;
+    </script>
+</body>
+</html>

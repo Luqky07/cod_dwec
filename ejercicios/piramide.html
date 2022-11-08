@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            font-family: monospace;
+        }
+    </style>
+    <script>
+        function crearPiramide() {
+            let espInit = pedirEspInit(); 
+            let num = pedirSize();
+            let filas = Math.round(num / 2);
+            let sol = "";
+            for (let i = 0, esp = filas - 1, ast = 1; i < filas; i++, esp--, ast += 2) {
+                for (let j = esp+espInit; j > 0; j--) {
+                    sol += "&nbsp";
+                }
+                for (let j = 0; j < ast; j++) {
+                    sol += "*";
+                }
+                sol += "<br/>";
+            }
+            for (let i = 1, esp = 1, ast = num - 2; i < filas; i++, esp++, ast -= 2) {
+                for (let j = esp+espInit; j > 0; j--) {
+                    sol += "&nbsp";
+                }
+                for (let j = 0; j < ast; j++) {
+                    sol += "*";
+                }
+                sol += "<br/>";
+            }
+            return sol;
+        }
+        function pedirSize(){
+            let size;
+            do{
+                size = Number(prompt("¿De que tamaño quieres que sea tu pirámide?"));
+                if(isNaN(size)) alert("Necesito un número para crear la pirámide");
+                if(size%2 == 0) alert("El tamaño debe ser un número impar");
+            }while(isNaN(size) || size%2 == 0);
+            return size;
+        }
+        function pedirEspInit(){
+            let esp;
+            do{
+                esp = Number(prompt("¿Cuantos espación quieres mover el texto a la derecha?"));
+                if(isNaN(esp)) alert("Necesito un número");
+            }while(isNaN(esp));
+            return esp;
+        }
+        function crearRombo(){
+            let espInit = pedirEspInit(); 
+            let num = pedirSize();
+            let filas = Math.round(num / 2);
+            let sol = "";
+            for (let i = 0, esp = filas - 1, ast = 1; i < filas; i++, esp--, ast += 2) {
+                for (let j = esp+espInit; j > 0; j--) {
+                    sol += "&nbsp";
+                }
+                sol += "<br/>";
+            }
+            for (let i = 1, esp = 1, ast = num - 2; i < filas; i++, esp++, ast -= 2) {
+                for (let j = esp+espInit; j > 0; j--) {
+                    sol += "&nbsp";
+                }
+                sol += "<br/>";
+            }
+            return sol;
+        }
+    </script>
+</head>
+
+<body>
+    <p id="piramide"></p>
+    <button onclick="crearVentana()">Pulse para crear pirámide</button>
+    <script>
+        function crearVentana(){
+            document.getElementById("piramide").innerHTML = crearPiramide();
+        }
+    </script>
+</body>
+
+</html>

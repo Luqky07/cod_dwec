@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        let num = Number(prompt("Dime un número y te enseñare su divisores: "));
+        let res ="";
+        for(var i=1; i<=num; i++){
+            if(num%i==0){
+                res += i;
+                if(i<=num-1){
+                    res += ", ";
+                }
+            }
+        }
+        window.alert("Los divisores de tu número son: "+res);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

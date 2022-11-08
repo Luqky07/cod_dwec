@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const numeros = [1,2,3,4,5];
+        numeros.push(6);//Añadir un número al final
+        console.log(numeros);
+        numeros.pop();//Borrar el último número
+        console.log(numeros);
+        numeros.splice(2,0,3.5);/*Inserta un número (última variable), la posición en la que lo voy a insertar (primera variable)
+                                    y cuantos contenidos quiero eliminar despues de la inserción (segunda variable)*/
+        console.log(numeros);
+        numeros.splice(3,1);//Borra una cantidad de valores (segunda variable) desde una posición (primera varible)
+        console.log(numeros);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
