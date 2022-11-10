@@ -23,7 +23,7 @@ function calcularMedia() {
     for (a of listaAlumnos) {
         notaTotal += a.nota;
     }
-    return notaTotal / listaAlumnos.length;
+    return (notaTotal / listaAlumnos.length).toFixed(2);
 }
 
 function iniciarNotas() {
@@ -97,25 +97,47 @@ function borrarAlumno() {
 function crearAlumno() {
     if (confirm("Seguro que quieres añadir un nuevo alumno") == true) {
         let name = prompt("Nombre del alumno");
-        if (name != "") listaAlumnos.push({nombre: name, nota: pedirNota(name)});
-        else("No se ha añadido un nuevo usuario");
+        if (name != "") listaAlumnos.push({ nombre: name, nota: pedirNota(name) });
+        else ("No se ha añadido un nuevo usuario");
         mostrarNotas();
     }
 }
 
-function ordenarLista(){
-    listaAlumnos.sort(function (a, b) {
-        if (a.nombre > b.nombre) {
-            return 1;
-        }
-        else if (a.nombre < b.nombre) {
-            return -1;
-        }
-        else return 0;
-    })
+function ordenarLista() {
+    let opt;
+    do{
+        opt = Number(prompt("¿Cómo quieres ordenar tu lista\n1-Nombre\n2-Nota"));
+    }while(isNaN(opt) || opt < 1 || opt > 2);
+    switch (opt){
+        case 1:
+            listaAlumnos.sort(function (a, b) {
+                let aSinTilde = quitarTilde(a.nombre);
+                let bSinTilde = quitarTilde(b.nombre);
+                if (aSinTilde > bSinTilde) return 1;
+                else if (aSinTilde < bSinTilde) return -1;
+                else return 0;
+            })
+            break;
+        case 2:
+            listaAlumnos.sort(function (a,b) {
+                if(a.nota > b.nota) return 1;
+                else if (a.nota < b.nota) return -1;
+                else return 0;
+            })
+            break;
+    }
     mostrarNotas();
 }
 
+function quitarTilde(nombre) {
+    let tildes = [["Á", "A"], ["É", "E"], ["Í", "I"], ["Ó", "O"], ["Ú", "U"],
+    ["á", "a"], ["é", "e"], ["í", "i"], ["ó", "o"], ["ú", "u"]];
+    let res = nombre;
+    for (t of tildes) {
+        res = res.replace(t[0], t[1]);
+    }
+    return res;
+}
 //Eventos
 modificar.addEventListener("click", corregirNota);
 borrar.addEventListener("click", borrarAlumno);
