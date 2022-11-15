@@ -3,22 +3,47 @@
 const texto = document.getElementById("texto");
 const buscador = document.getElementById("buscador");
 const boton = document.getElementById("boton");
+const mayus = document.getElementById("mayus");
+const exact = document.getElementById("exact");
 
-let loren = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare faucibus enim, id faucibus neque egestas at. Mauris egestas odio nulla, eu convallis leo convallis sed. Cras suscipit sed felis ac pulvinar. Praesent facilisis leo eu tortor egestas, et pulvinar urna lacinia. In vitae metus vel sapien convallis pretium ut eu urna. Donec at lectus vitae quam ullamcorper malesuada dignissim eu massa. Curabitur dolor urna, auctor sit amet risus a, bibendum aliquam magna. Sed pellentesque, nulla ut rutrum congue, enim tortor scelerisque justo, in scelerisque libero urna ac massa. Curabitur eget placerat felis. Vivamus lorem magna, posuere non euismod et, molestie eget risus. Integer lacinia nulla non vehicula sagittis. Praesent nibh massa, semper quis hendrerit vitae, suscipit at lacus. "
-texto.innerHTML = loren;
+let loren = texto.innerHTML;
 
 let textoArr = loren.split(" ");
 
 function remarcar() {
-    let palabra = buscador.value;
-    let res = "";
-    for (p of textoArr) {
-        if (p == palabra) {
-            p = "<span style = \"color : #ffea1a;\">" + p + "</span>"
+    if(buscador.value != ""){
+        let palabra = String(quitarTilde(buscador.value));
+        let res = "";
+        for (p of textoArr) {
+            let pModificada = String(quitarTilde(p));
+            if (!mayus.checked) {
+                palabra = palabra.toLowerCase();
+                pModificada = pModificada.toLowerCase();
+            }
+            if (exact.checked) {
+                if (pModificada == palabra) {
+                    p = "<span style = \"background-color : #ffea1a;\">" + p + "</span>"
+                }
+            } else {
+                let regex = new RegExp(palabra);
+                if(regex.test(pModificada)){
+                    p = pModificada.replace(palabra, "<span style = \"background-color : #ffea1a;\">" + palabra + "</span>");
+                }
+            }
+            res += p + " ";
         }
-        res += p + " ";
+        texto.innerHTML = res;
     }
-    texto.innerHTML = res;
+}
+
+function quitarTilde(nombre) {
+    let tildes = [["Á", "A"], ["É", "E"], ["Í", "I"], ["Ó", "O"], ["Ú", "U"],
+    ["á", "a"], ["é", "e"], ["í", "i"], ["ó", "o"], ["ú", "u"], [".", ""], [",", ""], [";", ""]];
+    let res = nombre;
+    for (t of tildes) {
+        res = res.replace(t[0], t[1]);
+    }
+    return res;
 }
 
 boton.addEventListener("click", remarcar);
