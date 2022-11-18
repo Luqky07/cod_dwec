@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>EJERCICIO 1</title>
+    <script>
+        const player = {
+            nombre: "Juan",
+            apellido: "García",
+            edad: 34,
+        }
+        player.sexo = "hombre"
+        player.foto = function () {
+            console.log("Esto es un método " + player.edad)
+        };
+        console.log(player);
+        const player2 = {
+            nombre: "Juan Garcia",
+            aprobadas: 4,
+            asignaturas: 6,
+            toString: function () {
+                return (this.nombre + " " + this.aprobadas + "/" + this.asignaturas);
+            }
+        };
+        console.log("Resumen de " + player2.toString());
+    </script>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th>Linea</th>
+            <th>Pone</th>
+            <th>Debe poner</th>
+            <th>Explicación</th>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>apellido: García</td>
+            <td>apellido: "García",</td>
+            <td>Al crear objetos hay que separar sus propiedades con ",". Ademas el texto "García" estaba escrito sin
+                comillas y por tanto no era interpretado como un String sino como una variable.</td>
+        </tr>
+        <tr>
+            <td>14</td>
+            <td>player.foto = function({</td>
+            <td>player.foto = function(){</td>
+            <td>Para declarar una función es necesario especificar los argumentos que necesita entre parentesis, aunque
+                en este caso no necesite argumentos se deben escribir ambos parentesis para que el interprete lo
+                identifique como una función.</td>
+        </tr>
+        <tr>
+            <td>15</td>
+            <td>"player.edad"</td>
+            <td>player.edad</td>
+            <td>Al poner las comillas se interpreta como un string y no como la propiedad edad del objeto player, por
+                tanto en consola se motraria literalmente player.edad en lugar de 34, por eso hay que quitar las
+                comillas.</td>
+        </tr>
+        <tr>
+            <td>23</td>
+            <td>return ('${this.nombre} (${this.aprobadas}/${this.asignaturas})')</td>
+            <td>return (this.nombre + " " + this.aprobadas + "/" + this.asignaturas);</td>
+            <td>Como queremos crear un string con la información del objeto player2 al igual que con el error de la
+                línea anteriror debemos quitar las comillas, this se usa para hacer referencia en el código dentro de un
+                objeto al objeto en si, pero no necesita estar acompañado de ${}, simplente se escribe this.propiedad
+                por último para darle un formato correcto y coherente demos concatenar texto entre las distintas
+                propiedades, añadiremos un espacio entre this.nombre y this.aprobadad para que no se muestren juntas sin
+                ningun tipo de separación, y tambien la barra lateral la concatenaremos escribiendola entre comillas
+                para que el interprete la identifique como un string y de esta forma nos permita mostrar un formato de
+                fracción ya que en caso contrario mostraria el resultado de la división y no los valores por separado.
+            </td>
+        </tr>
+        <tr>
+            <td>17</td>
+            <td></td>
+            <td>console.log(player);</td>
+            <td>He añadido este fragmento de código como depuración para asegurarme de que los cambios hechos a player
+                se han realizado correctamente.</td>
+        </tr>
+    </table>
+    <!--
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    -->
+</body>
+
+</html>

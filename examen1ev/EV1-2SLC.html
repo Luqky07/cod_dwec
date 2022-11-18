@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>EJERCICIO 2</title>
+    <script>
+        //Declaración de constantes del DOM
+        const tjornada = document.getElementById("jornada");
+
+        //Array de equipos
+        const equipos = ["Recreativo", "Átletico", "Sporting", "Real", "Unión", "Marino",
+            "Juventud", "Rayo", "Diocesano", "Deportivo", "Internacional", "Adarve"]
+
+        const liga = generarLiga();
+
+        //Hay un array con las jornadas
+        let jornadas = [
+            [
+                [generarLiga[0], generarLiga[1]],
+                [generarLiga[2], generarLiga[3]],
+                [generarLiga[4], generarLiga[5]],
+                [generarLiga[6], generarLiga[7]],
+                [generarLiga[8], generarLiga[9]],
+                [generarLiga[10], generarLiga[11]]
+            ]
+        ]
+
+        console.log(liga);
+        for (l in liga) {
+            console.log(l.nombre);
+            quitarEquipo(l, "Recreativo")
+        }
+
+        let jornadasIda = [];
+
+        //Función
+        /*La idea era generar un array que contenga los equipos
+        y otro array con los rivales con los que no se ha enfrentado y cuando se enfrentase ir borrandolos*/
+
+        function generarLiga() {
+            let res = [];
+            for (i in equipos) {
+                res.push([
+                    equipos[i],
+                    equipos
+                ]);
+            }
+            return res;
+        }
+        function generarJornada() {
+
+        }
+        function quitarEquipo(equipo, eBorrar) {
+            for (i in equipo.rivales) {
+                if (eBorrar == equipo.rivales[i]) {
+                    equipo.rivales[i] = "";
+                }
+            }
+        }
+        function verJornada(num) {
+            for(j of jornada[num]){
+                tjornada.innerHTML = "<td>"+ j[0] +"</td>";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Equipo 1</th>
+                <th>Equipo 2</th>
+                <th>Gana equipo 1</th>
+                <th>Empate</th>
+                <th>Gana equipo 2</th>
+            </tr>
+        </thead>
+        <tbody id="jornada"></tbody>
+    </table>
+</body>
+
+</html>
