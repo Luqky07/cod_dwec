@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liga española</title>
+    <style>
+        article table{
+            margin-top: 1%;
+            width: 40%;
+        }
+        article table{
+            padding: 2%;
+        }
+        article table th{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <form method="post" id="form">
+            <input type="num" name="numJornada">
+            <input type="submit">
+        </form>
+    </header>
+    <article>
+        <table border="1" rules="all">
+            <thead>
+                <tr>
+                    <th>Equipo Local</th>
+                    <th>Equipo Visitante</th>
+                    <th>1</th>
+                    <th>X</th>
+                    <th>2</th>
+                </tr>
+            </thead>
+            <tbody id="table">
+
+            </tbody>
+        </table>
+    </article>
+    <script src="liga.js"></script>
+</body>
+</html>
