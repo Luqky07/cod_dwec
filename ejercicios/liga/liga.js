@@ -1,9 +1,9 @@
 //Declaración de elementos del DOM
 const form = document.getElementById("form");
-const table = document.getElementById("table")
+const table = document.getElementById("table");
+const error = document.getElementById("error");
 
 //Array con los equipos
-
 let equipos = ["Recreativo", "Atlético", "Sporting", "Real", "Unión",
     "Marino", "Juventud", "Rayo", "Diocesano", "Deportivo", "Internacional", "Adarve"]
 
@@ -22,19 +22,17 @@ liga = liga.concat(crearVuelta());
 let quiniela = rellenarQuiniela();
 
 //Visualización debug
-/* console.log(tablaLocales);
-console.log(tablaVisitantes); */
+console.log(tablaLocales);
+console.log(tablaVisitantes);
+/*
 console.log(liga);
-console.log(quiniela);
+console.log(quiniela); */
 
 
 //Funciones
-
-
 function rellenarLocales() {
-    let pos = 0;
     let jornada = [];
-    for (let i = 0; i < equipos.length - 1; i++) {
+    for (let i = 0, pos = 0; i < equipos.length - 1; i++) {
         let partidos = []
         for (let j = 0; j < equipos.length / 2; j++) {
             partidos.push(equipos[pos]);
@@ -47,9 +45,8 @@ function rellenarLocales() {
 }
 
 function rellenarVisitantes() {
-    let pos = equipos.length - 2;
     let jornada = [];
-    for (let i = 0; i < equipos.length - 1; i++) {
+    for (let i = 0, pos = equipos.length - 2; i < equipos.length - 1; i++) {
         let partidos = [equipos[equipos.length - 1]];
         for (let j = 0; j < equipos.length / 2 - 1; j++) {
             partidos.push(equipos[pos]);
@@ -90,10 +87,7 @@ function rellenarQuiniela() {
     let jornada = [];
     for (let i = 0; i < liga.length; i++) {
         let partidos = [];
-        let cont1 = 0;
-        let contX = 0;
-        let cont2 = 0;
-        for (let j = 0; j < liga[i].length; j++) {
+        for (let j = 0, cont1 = 0, contX = 0, cont2 = 0; j < liga[i].length; j++) {
             let valor;
             let valido = false;
             let casilla;
@@ -120,18 +114,25 @@ function rellenarQuiniela() {
     return jornada;
 }
 
+//Eventos
 form.addEventListener("submit", (evento) => {
     evento.preventDefault();
     let valorJornada = evento.target.numJornada.value - 1;
-    table.innerHTML = "";
-    for (let i = 0; i < liga[valorJornada].length; i++) {
-        table.innerHTML += "<tr><td>" + liga[valorJornada][i][0] + "</td><td>" + liga[valorJornada][i][1] + "</td>";
-        if (quiniela[valorJornada][i] == "1") {
-            table.innerHTML += "<td>X</td><td>&nbsp</td><td>&nbsp</td></tr>";
-        } else if (quiniela[valorJornada][i] == "X") {
-            table.innerHTML += "<td>&nbsp</td><td>X</td><td>&nbsp</td>";
-        } else if (quiniela[valorJornada][i] == "2"){
-            table.innerHTML += "<td>&nbsp</td><td>&nbsp</td><td>X</td>";
+    if (valorJornada >= 0 && valorJornada <= 21) {
+        error.innerHTML = "";
+        let txt = "";
+        for (let i = 0; i < liga[valorJornada].length; i++) {
+            txt += "<tr>\n<td>" + liga[valorJornada][i][0] + "</td>\n<td>" + liga[valorJornada][i][1] + "</td>\n";
+            if (quiniela[valorJornada][i] == "1") {
+                txt += "<th>X</th>\n<th>&nbsp</th>\n<th>&nbsp</th>\n</tr>\n";
+            } else if (quiniela[valorJornada][i] == "X") {
+                txt += "<th>&nbsp</th>\n<th>X</th>\n<th>&nbsp</th>\n</tr>\n";
+            } else if (quiniela[valorJornada][i] == "2") {
+                txt += "<th>&nbsp</th>\n<th>&nbsp</th>\n<th>X</th>\n</tr>\n";
+            }
         }
+        table.innerHTML = txt;
+    } else {
+        error.innerHTML = "No existe esa jornada";
     }
 })
