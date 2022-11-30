@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .miClase {
+            color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="miDiv"></div>
+    <br />
+    <textarea id="texto"></textarea>
+    <br />
+    <button id="crearParrafo">Crear párrafo</button>
+    <button id="crearImagen">Crear imagen</button>
+    <button id="borrarUltimo">Borrar último</button>
+    <button id="borrarPrimero">Borrar primero</button>
+    <button id="borrarAleatorio">Borrar aleatorio</button>
+    <button id="sustituirPrimero">Sustituir primer párrafo por vacío</button>
+    <script>
+        window.addEventListener("load", inicio);
+        function inicio() {
+            document.getElementById("crearParrafo").addEventListener("click", crearParrafo);
+            document.getElementById("crearImagen").addEventListener("click", crearImagen);
+            document.getElementById("borrarUltimo").addEventListener("click", borrarUltimo);
+            document.getElementById("borrarPrimero").addEventListener("click", borrarPrimero);
+            document.getElementById("borrarAleatorio").addEventListener("click", borrarAleatorio);
+            document.getElementById("sustituirPrimero").addEventListener("click", sustituirPrimero);
+        }
+        function crearParrafo() {
+            let miParrafo = document.createElement("p");
+            let texto = document.createTextNode(document.getElementById("texto").value);
+            miParrafo.appendChild(texto);
+            miParrafo.setAttribute("class", "miClase");
+            let contenido = document.getElementById("miDiv");
+            contenido.appendChild(miParrafo);
+        }
+        function crearImagen() {
+            let miImagen = document.createElement("img");
+            let ruta = document.getElementById("texto").value;
+            console.log(ruta);
+            miImagen.setAttribute("src", ruta);
+            miImagen.setAttribute("alt", "Un Hristo salvaje")
+            let contenido = document.getElementById("miDiv");
+            contenido.appendChild(miImagen);
+        }
+        function borrarUltimo() {
+            let contenido = document.getElementById("miDiv");
+            let hijo = contenido.lastChild;
+            contenido.removeChild(hijo);
+            //document.getElementById("miDiv").removeChild(document.getElementById("miDiv").lastChild);
+        }
+        function borrarPrimero() {
+            let contenido = document.getElementById("miDiv");
+            let hijo = contenido.firstChild;
+            contenido.removeChild(hijo);
+            //document.getElementById("miDiv").removeChild(document.getElementById("miDiv").firstChild);
+        }
+        function sustituirPrimero() {
+            let contenido = document.getElementById("miDiv");
+            let miParrafo = document.createElement("p");
+            let texto = document.createTextNode("Vacio");
+            miParrafo.appendChild(texto);
+            contenido.replaceChild(miParrafo, contenido.firstChild);
+        }
+        function borrarAleatorio() {
+            let contenido = document.getElementById("miDiv");
+            let array = contenido.children;
+            let num = document.getElementById("texto").value;
+            contenido.removeChild(array[Number(num)-1]);
+        }
+    </script>
+</body>
+
+</html>

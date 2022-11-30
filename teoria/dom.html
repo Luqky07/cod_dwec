@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM. Creación y modificación de documentos</title>
+    <style>
+        .miClase {
+            color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <p id="parrafo1">Este es el primer párrafo</p>
+        <p id="parrafo2">Este es el segundo párrafo</p>
+        <p id="parrafo3" class="miClase">Este es el tercer párrafo</p>
+    </div>
+    <br />
+    <button id="cambiarTextos">Cambiar texto de párrafos</button>
+    <button id="cambiarClases">Cambiar clases de párrafos</button>
+    <button id="quitarClases">Quitar clases de todos los párrafos</button>
+    <script>
+        window.addEventListener("load", inicio);
+        function inicio() {
+            document.getElementById("cambiarTextos").addEventListener("click", cambiaTexto);
+            document.getElementById("cambiarClases").addEventListener("click", cambiaClases);
+            document.getElementById("quitarClases").addEventListener("click", quitaClases);
+
+            function cambiaTexto() {
+                let parrafos = document.getElementsByTagName("p");
+                for (let i = 0; i < parrafos.length; i++) {
+                    parrafos[i].textContent = "He cambiado el párrafo " + (i + 1);
+                }
+            }
+
+            function cambiaClases() {
+                let parrafos = document.getElementsByClassName("miClase");
+                for (let i = 0; i < parrafos.length; i++) {
+                    parrafos[i].textContent = "He cambiado la clase " + (i + 1);
+                }
+                parrafos = document.getElementsByTagName("p");
+                for (let i = 0; i < parrafos.length; i++) {
+                    parrafos[i].setAttribute("class","miClase");+ (i + 1);
+                }
+            }
+
+            function quitaClases() {
+                let parrafos = document.getElementsByClassName("miClase");
+                for (let i = 0; i < parrafos.length; i++) {
+                    console.log(i);
+                    parrafos[i].removeAttribute("class");
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
