@@ -15,7 +15,7 @@
         function crearPiramide() {
             let espInit = pedirEspInit(); 
             let num = pedirSize();
-            let filas = Math.round(num / 2);
+            let filas = Math.floor(num / 2);
             let sol = "";
             for (let i = 0, esp = filas - 1, ast = 1; i < filas; i++, esp--, ast += 2) {
                 for (let j = esp+espInit; j > 0; j--) {

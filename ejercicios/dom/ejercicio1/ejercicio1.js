@@ -16,8 +16,7 @@ function inciarParrafos(num) {
 }
 
 function contarElementos() {
-    let hijos = contenedor.children;
-    console.log(hijos);
+    let hijos = contenedor.childNodes;
     let tipos = "";
     for (let i = 0; i < hijos.length; i++) {
         if (i == 0) tipos += hijos[i].localName;

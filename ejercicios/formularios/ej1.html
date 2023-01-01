@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario ejercicio 1</title>
+    <script src="ej1.js"></script>
+    <style>
+        * {
+            font-size: x-large;
+            font-weight: 500;
+            text-align: center;
+            margin-top: 1%;
+        }
+
+        .error {
+            background-color: rgba(181, 0, 0, 0.4);
+        }
+    </style>
+</head>
+
+<body>
+    <form id="form" method="post" action="">
+        <fieldset>
+            <legend>Datos personales</legend>
+            <label>Introduce tu nombre</label>
+            <input type="text" name="nombre" id="nombre">
+            <br>
+            <label>Mensaje</label>
+            <br />
+            <textarea id="mensaje" name="mensaje" cols="150" rows="15" minlength="2" maxlength="500"></textarea>
+        </fieldset>
+        <label>Elije un color</label>
+        <br />
+        <label>Rojo</label>
+        <input type="radio" name="disponibilidad" value="rojo" checked>
+        <br />
+        <label>Verde</label>
+        <input type="radio" name="disponibilidad" value="verde">
+        <br />
+        <label>Azul</label>
+        <input type="radio" name="disponibilidad" value="azul">
+        <br />
+        <label>Oscuro</label>
+        <input type="radio" name="disponibilidad" value="oscuro">
+        <br />
+        <label>Selecciona una asignatura</label>
+        <select name="asignatura">
+            <option>DAW</option>
+            <option>DIW</option>
+            <option>EIE</option>
+            <option>DWEC</option>
+            <option>ITGS</option>
+            <option>DWES</option>
+        </select>
+        <br />
+        <label>Selecciona los días con disponibilidad</label>
+        <br />
+        <input type="checkbox" value="lunes">
+        <label>Lunes</label>
+        <br />
+        <input type="checkbox" value="martes">
+        <label>Martes</label>
+        <br />
+        <input type="checkbox" value="miercoles">
+        <label>Miércoles</label>
+        <br />
+        <input type="checkbox" value="jueves">
+        <label>Jueves</label>
+        <br />
+        <input type="checkbox" value="viernes">
+        <label>Viernes</label>
+        <br />
+        <input type="checkbox" value="sabado">
+        <label>Sábado</label>
+        <br />
+        <input type="checkbox" value="domingo">
+        <label>Domingo</label>
+        <br />
+        <label>Selecciona el día preferente</label>
+        <select name="dia">
+            <option>Lunes</option>
+            <option>Martes</option>
+            <option>Miércoles</option>
+            <option>Jueves</option>
+            <option>Viernes</option>
+            <option>Sábado</option>
+            <option>Domingo</option>
+        </select>
+        <br />
+        <input type="submit" value="Haz click para enviar información">
+        <input type="reset" value="Comenzar a rellenar de nuevo">
+        <input type="button" value="Haz click sobre mi">
+    </form>
+</body>
+
+</html>

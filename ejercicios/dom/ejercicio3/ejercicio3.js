@@ -14,5 +14,5 @@ function cambiarSize(){
 
 function cambiarColor(){
     let numColor = (Math.random()* 999999).toFixed(0);
-    container.firstChild.setAttribute("color", "#" + numColor);
+    container.firstChild.setAttribute("color", "rgb(" + numColor + ")");
 }
