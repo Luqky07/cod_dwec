@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mi formulario</title>
+    <link rel="stylesheet" type="text/css" href="css/201SLC.css" />
+  </head>
+  <body>
+    <form>
+      <fieldset>
+        <legend>Datos personales</legend>
+        <div>
+          <label for="name">Introduce tu nombre</label>
+          <input id="name" type="text" name="name" size="30"/>
+        </div>
+        <div>
+          <label for="message">Mensaje</label>
+          <br />
+          <textarea cols="150" rows="10"></textarea>
+        </div>
+      </fieldset>
+      <div>
+        <label>Elige un color:</label>
+        <br />
+        <label for="red">Rojo</label>
+        <input id="red" type="radio" name="color" value="red" />
+        <br />
+        <label for="green">Verde</label>
+        <input id="green" type="radio" name="color" value="green" />
+        <br />
+        <label for="blue">Azul</label>
+        <input id="blue" type="radio" name="color" value="blue" />
+        <br />
+        <label for="dark">Oscuro</label>
+        <input id="dark" type="radio" name="color" value="dark" />
+      </div>
+      <div>
+        <label for="course">Selecciona una asignatura</label>
+        <select id="course" name="course">
+          <option value="daw">DAW</option>
+          <option value="diw">DIW</option>
+          <option value="dwec">DWEC</option>
+          <option value="dwes">DWES</option>
+          <option value="eie">EIE</option>
+          <option value="itgs">ITGS</option>
+        </select>
+      </div>
+      <div>
+        <label>Selecciona los días con disponibilidad</label>
+        <br />
+        <input for="monday" type="checkbox" name="day" value="monday" />
+        <label for="monday">Lunes</label>
+        <br />
+        <input for="tuesday" type="checkbox" name="day" value="tuesday" />
+        <label for="tuesday">Martes</label>
+        <br />
+        <input for="wednesday" type="checkbox" name="day" value="wednesday" />
+        <label for="wednesday">Miércoles</label>
+        <br />
+        <input for="thursday" type="checkbox" name="day" value="thursday" />
+        <label for="thursday">Jueves</label>
+        <br />
+        <input for="friday" type="checkbox" name="day" value="friday" />
+        <label for="friday">Viernes</label>
+      </div>
+      <div>
+        <label for="prefer_day">Selecciona el día preferente</label>
+        <select id="prefer_day" name="prefer_day">
+          <option value="monday">Lunes</option>
+          <option value="tuesday">Martes</option>
+          <option value="wednesday">Miércoles</option>
+          <option value="thursday">Jueves</option>
+          <option value="friday">Viernes</option>
+        </select>
+      </div>
+      <div>
+        <input type="submit" value="Haz click para enviar la información" />
+        <input type="reset" value="Comenzar a rellenar de nuevo" />
+        <input type="button" value="Haz click sobre mi" />
+      </div>
+    </form>
+  </body>
+</html>
