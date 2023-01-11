@@ -29,7 +29,7 @@ function validarNombre() {
 function validarMensaje() {
     let elemento = document.getElementById("mensaje");
     elemento.className = "";
-    if (!elemento.validity.min && !elemento.validity.max) {
+    if (!elemento.validity.tooShort && !elemento.validity.tooLong) {
         elemento.className = "error";
         return false;
     }

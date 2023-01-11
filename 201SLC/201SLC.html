@@ -5,20 +5,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mi formulario</title>
-    <link rel="stylesheet" type="text/css" href="css/201SLC.css" />
+    <style>
+      form fieldset div {
+        width: 100%;
+        margin: auto;
+        text-align: center;
+        margin: 2%;
+      }
+      form fieldset div input {
+        margin: auto;
+      }
+
+      form fieldset div br {
+        margin-bottom: 2%;
+      }
+
+      form fieldset {
+        margin-bottom: 1.5%;
+      }
+
+      form div {
+        width: 50%;
+        margin: auto;
+        text-align: center;
+        margin-bottom: 1.5%;
+      }
+    </style>
   </head>
   <body>
-    <form>
+    <form id="form" method="post" action="">
       <fieldset>
         <legend>Datos personales</legend>
         <div>
           <label for="name">Introduce tu nombre</label>
-          <input id="name" type="text" name="name" size="30"/>
+          <input id="name" type="text" name="name" size="30" required/>
         </div>
         <div>
           <label for="message">Mensaje</label>
           <br />
-          <textarea cols="150" rows="10"></textarea>
+          <textarea
+            id="message"
+            name="message"
+            cols="150"
+            rows="10"
+            minlength="2"
+            maxlength="250"
+          ></textarea>
         </div>
       </fieldset>
       <div>
@@ -34,7 +66,7 @@
         <input id="blue" type="radio" name="color" value="blue" />
         <br />
         <label for="dark">Oscuro</label>
-        <input id="dark" type="radio" name="color" value="dark" />
+        <input id="dark" type="radio" name="color" value="dark" checked />
       </div>
       <div>
         <label for="course">Selecciona una asignatura</label>
@@ -50,25 +82,25 @@
       <div>
         <label>Selecciona los días con disponibilidad</label>
         <br />
-        <input for="monday" type="checkbox" name="day" value="monday" />
+        <input id="monday" type="checkbox" name="day" value="monday" />
         <label for="monday">Lunes</label>
         <br />
-        <input for="tuesday" type="checkbox" name="day" value="tuesday" />
+        <input id="tuesday" type="checkbox" name="day" value="tuesday" />
         <label for="tuesday">Martes</label>
         <br />
-        <input for="wednesday" type="checkbox" name="day" value="wednesday" />
+        <input id="wednesday" type="checkbox" name="day" value="wednesday" />
         <label for="wednesday">Miércoles</label>
         <br />
-        <input for="thursday" type="checkbox" name="day" value="thursday" />
+        <input id="thursday" type="checkbox" name="day" value="thursday" />
         <label for="thursday">Jueves</label>
         <br />
-        <input for="friday" type="checkbox" name="day" value="friday" />
+        <input id="friday" type="checkbox" name="day" value="friday" />
         <label for="friday">Viernes</label>
       </div>
       <div>
         <label for="prefer_day">Selecciona el día preferente</label>
         <select id="prefer_day" name="prefer_day">
-          <option value="monday">Lunes</option>
+          <option value="monday" checked>Lunes</option>
           <option value="tuesday">Martes</option>
           <option value="wednesday">Miércoles</option>
           <option value="thursday">Jueves</option>
@@ -76,10 +108,15 @@
         </select>
       </div>
       <div>
-        <input type="submit" value="Haz click para enviar la información" />
-        <input type="reset" value="Comenzar a rellenar de nuevo" />
-        <input type="button" value="Haz click sobre mi" />
+        <input
+          id="submit"
+          type="submit"
+          value="Haz click para enviar la información"
+        />
+        <input id="reset" type="reset" value="Comenzar a rellenar de nuevo" />
+        <input id="google" type="button" value="Haz click sobre mi" />
       </div>
     </form>
+    <script src="js/201SLC.js"></script>
   </body>
 </html>
