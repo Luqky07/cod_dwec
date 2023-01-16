@@ -1,122 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mi formulario</title>
-    <style>
-      form fieldset div {
-        width: 100%;
-        margin: auto;
-        text-align: center;
-        margin: 2%;
-      }
-      form fieldset div input {
-        margin: auto;
-      }
 
-      form fieldset div br {
-        margin-bottom: 2%;
-      }
+<!--
+Ejercicio 1:
+Se debe añadir un checkbox para seleccionar/deseleccionar todos los días con
+disponibilidad.
+Realizar una validación (débil, en el lado del cliente) utilizando indistintamente los
+métodos vistos en clase (los tres deben estar representados) con las siguientes
+restricciones:
+• Nombre: debe ser obligatorio
+• Mensaje: de entre 2 y 500 caracteres
+• Color por defecto: oscuro
+• Días: seleccionar al menos dos
+• Preferente: por defecto marcado: lunes
+• Botón de “Hacer click”: ir a Google.com
+Adaptar el formulario, para que al hacer clic para enviar información, se envíe la
+información a un correo electrónico en texto plano
+-->
 
-      form fieldset {
-        margin-bottom: 1.5%;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi formulario</title>
+  <style>
+    form fieldset div {
+      width: 100%;
+      margin: auto;
+      text-align: center;
+      margin: 2%;
+    }
 
-      form div {
-        width: 50%;
-        margin: auto;
-        text-align: center;
-        margin-bottom: 1.5%;
-      }
-    </style>
-  </head>
-  <body>
-    <form id="form" method="post" action="">
-      <fieldset>
-        <legend>Datos personales</legend>
-        <div>
-          <label for="name">Introduce tu nombre</label>
-          <input id="name" type="text" name="name" size="30" required/>
-        </div>
-        <div>
-          <label for="message">Mensaje</label>
-          <br />
-          <textarea
-            id="message"
-            name="message"
-            cols="150"
-            rows="10"
-            minlength="2"
-            maxlength="250"
-          ></textarea>
-        </div>
-      </fieldset>
+    form fieldset div input {
+      margin: auto;
+    }
+
+    form fieldset div br {
+      margin-bottom: 2%;
+    }
+
+    form fieldset {
+      margin-bottom: 1.5%;
+    }
+
+    form div {
+      width: 50%;
+      margin: auto;
+      text-align: center;
+      margin-bottom: 1.5%;
+    }
+  </style>
+</head>
+
+<body>
+  <form id="form" method="post" action="" novalidate>
+    <fieldset>
+      <legend>Datos personales</legend>
       <div>
-        <label>Elige un color:</label>
-        <br />
-        <label for="red">Rojo</label>
-        <input id="red" type="radio" name="color" value="red" />
-        <br />
-        <label for="green">Verde</label>
-        <input id="green" type="radio" name="color" value="green" />
-        <br />
-        <label for="blue">Azul</label>
-        <input id="blue" type="radio" name="color" value="blue" />
-        <br />
-        <label for="dark">Oscuro</label>
-        <input id="dark" type="radio" name="color" value="dark" checked />
+        <label for="name">Introduce tu nombre</label>
+        <input id="name" type="text" name="name" size="30" required />
       </div>
       <div>
-        <label for="course">Selecciona una asignatura</label>
-        <select id="course" name="course">
-          <option value="daw">DAW</option>
-          <option value="diw">DIW</option>
-          <option value="dwec">DWEC</option>
-          <option value="dwes">DWES</option>
-          <option value="eie">EIE</option>
-          <option value="itgs">ITGS</option>
-        </select>
+        <label for="message">Mensaje</label>
+        <br />
+        <textarea id="message" name="message" cols="150" rows="10" minlength="2" maxlength="250"></textarea>
       </div>
-      <div>
-        <label>Selecciona los días con disponibilidad</label>
-        <br />
-        <input id="monday" type="checkbox" name="day" value="monday" />
-        <label for="monday">Lunes</label>
-        <br />
-        <input id="tuesday" type="checkbox" name="day" value="tuesday" />
-        <label for="tuesday">Martes</label>
-        <br />
-        <input id="wednesday" type="checkbox" name="day" value="wednesday" />
-        <label for="wednesday">Miércoles</label>
-        <br />
-        <input id="thursday" type="checkbox" name="day" value="thursday" />
-        <label for="thursday">Jueves</label>
-        <br />
-        <input id="friday" type="checkbox" name="day" value="friday" />
-        <label for="friday">Viernes</label>
-      </div>
-      <div>
-        <label for="prefer_day">Selecciona el día preferente</label>
-        <select id="prefer_day" name="prefer_day">
-          <option value="monday" checked>Lunes</option>
-          <option value="tuesday">Martes</option>
-          <option value="wednesday">Miércoles</option>
-          <option value="thursday">Jueves</option>
-          <option value="friday">Viernes</option>
-        </select>
-      </div>
-      <div>
-        <input
-          id="submit"
-          type="submit"
-          value="Haz click para enviar la información"
-        />
-        <input id="reset" type="reset" value="Comenzar a rellenar de nuevo" />
-        <input id="google" type="button" value="Haz click sobre mi" />
-      </div>
-    </form>
-    <script src="js/201SLC.js"></script>
-  </body>
+    </fieldset>
+    <div>
+      <label>Elige un color:</label>
+      <br />
+      <label for="red">Rojo</label>
+      <input id="red" type="radio" name="color" value="Rojo" />
+      <br />
+      <label for="green">Verde</label>
+      <input id="green" type="radio" name="color" value="Verde" />
+      <br />
+      <label for="blue">Azul</label>
+      <input id="blue" type="radio" name="color" value="Azul" />
+      <br />
+      <label for="dark">Oscuro</label>
+      <input id="dark" type="radio" name="color" value="Oscuro" checked />
+    </div>
+    <div>
+      <label for="course">Selecciona una asignatura</label>
+      <select id="course" name="course">
+        <option value="DAW">DAW</option>
+        <option value="DIW">DIW</option>
+        <option value="DWEC">DWEC</option>
+        <option value="DWES">DWES</option>
+        <option value="EIE">EIE</option>
+        <option value="ITGS">ITGS</option>
+      </select>
+    </div>
+    <div>
+      <label>Selecciona los días con disponibilidad</label>
+      <br />
+      <input id="monday" type="checkbox" name="day" value="Lunes" />
+      <label for="monday">Lunes</label>
+      <br />
+      <input id="tuesday" type="checkbox" name="day" value="Martes" />
+      <label for="tuesday">Martes</label>
+      <br />
+      <input id="wednesday" type="checkbox" name="day" value="Miércoles" />
+      <label for="wednesday">Miércoles</label>
+      <br />
+      <input id="thursday" type="checkbox" name="day" value="Jueves" />
+      <label for="thursday">Jueves</label>
+      <br />
+      <input id="friday" type="checkbox" name="day" value="Viernes" />
+      <label for="friday">Viernes</label>
+    </div>
+    <div>
+      <label for="prefer_day">Selecciona el día preferente</label>
+      <select id="prefer_day" name="prefer_day">
+        <option value="Lunes" checked>Lunes</option>
+        <option value="Martes">Martes</option>
+        <option value="Miércoles">Miércoles</option>
+        <option value="Jueves">Jueves</option>
+        <option value="Viernes">Viernes</option>
+      </select>
+    </div>
+    <div>
+      <input id="submit" type="submit" value="Haz click para enviar la información" />
+      <input id="reset" type="reset" value="Comenzar a rellenar de nuevo" />
+      <input id="google" type="button" value="Haz click sobre mi" />
+    </div>
+  </form>
+  <script src="201SLC.js"></script>
+</body>
+
 </html>
