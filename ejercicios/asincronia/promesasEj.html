@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Num random</title>
+</head>
+
+<body>
+    <script>
+        const promise = new Promise((resolve, reject) => {
+            let numero = Math.floor(Math.random() * 10);
+            setTimeout(() => (numero > 5 ? resolve(numero) : reject(new Error("Menor a 5"))), 5000);
+        })
+        console.log(promise);
+        promise
+                .then((e) => console.log(e))
+                .catch((e) => console.log(e))
+                .finally(() => console.log(promise));
+    </script>
+</body>
+
+</html>
