@@ -1,8 +1,10 @@
 recibeData();
 function recibeData() {
     fetch("https://randomuser.me/api?results=10")
-        .then(res => res.json())
-        .then(musers => appendMuser(musers.results))
+        .then(async (res) => {
+            musers = await res.json();
+            appendMuser(musers.results);
+        })
         .catch(error => console.log(error));
 }
 function appendMuser(musers) {
