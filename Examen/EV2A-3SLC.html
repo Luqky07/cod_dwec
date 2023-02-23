@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--Autor Sergio Luque Chacon-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movement box</title>
+    <style>
+        body {
+            font-family: 'Roboto Slab', serif;
+            color: #f0f0f0;
+            background-color: #121212;
+        }
+
+        #idCaja {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            color: red;
+            top: 0px;
+            left: 0px;
+            border-style: solid;
+        }
+    </style>
+</head>
+
+<body id="body">
+    <div id="idCaja" name='caja'>
+
+    </div>
+
+</body>
+<script>
+    //Constante del elemento HTML con id "idCaja"
+    const caja = document.getElementById("idCaja");
+    const maxWidth = window.innerWidth;
+    const maxHeight = window.innerHeight;
+    //Evento para manejar cuando se pulsan teclas
+    document.addEventListener("keydown", (e) => {
+        console.log(e);
+        //Si se pulsa la tecla "d" aumentará el margen de la izquierda moviendo la caja hacia la derecha
+        if (e.key == "d") {
+            margin = caja.style.marginLeft.substring(0, (caja.style.marginLeft.length - 2));
+            let newMargin;
+            if (margin > maxWidth - 115) newMargin = caja.style.marginLeft + "px";
+            else newMargin = Number(margin) + 10 + "px";
+            caja.style.marginLeft = newMargin;
+        }
+        //Si se pulsa la tecla "a" dismunuirá el margen de la izquierda moviendo la caja hacia la izquierda
+        if (e.key == "a") {
+            margin = caja.style.marginLeft.substring(0, (caja.style.marginLeft.length - 2));
+            let newMargin;
+            if (margin == 0) newMargin = caja.style.marginLeft + "px";
+            else newMargin = Number(margin) - 10 + "px";
+            caja.style.marginLeft = newMargin;
+        }
+        //Si se pulsa la tecla "w" disminuirá el margen de arriba moviendo la caja hacia arriba
+        if (e.key == "w") {
+            margin = caja.style.marginTop.substring(0, (caja.style.marginTop.length - 2));
+            let newMargin;
+            if (margin == 0) newMargin = caja.style.marginTop + "px";
+            else newMargin = Number(margin) - 10 + "px";
+            caja.style.marginTop = newMargin;
+        }
+        //Si se pulsa la tecla "s" aumentará el margen de arriba moviendo la caja hacia abajo
+        if (e.key == "s") {
+            margin = caja.style.marginTop.substring(0, (caja.style.marginTop.length - 2));
+            let newMargin;
+            if (margin > (maxHeight - 115)) newMargin = caja.style.marginTop + "px";
+            else newMargin = Number(margin) + 10 + "px";
+            caja.style.marginTop = newMargin;
+        }
+    })
+</script>
+
+</html>

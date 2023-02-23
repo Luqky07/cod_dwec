@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--Autor Sergio Luque Chacon-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear clases</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //Clase animal con información sobre su nombre, especie, edad, estado de salud, peso y color
+    class Animal {
+        nombre;
+        especie;
+        edad;
+        salud;
+        peso;
+        color;
+        //Constructor de la clase
+        constructor(nombre, especie, edad, salud, peso, color) {
+            this.nombre = nombre;
+            this.especie = especie;
+            this.edad = edad;
+            this.salud = salud;
+            this.peso = peso;
+            this.color = color;
+        }
+    }
+    //Ejemplo de funcionamiento básico
+    const animal = crearClase("Akiro", "Gato", "2", "Sanisimo", "5kg", "Naranja");
+    console.log(animal);
+
+    //Función que devuelve un animal
+    function crearClase(nombre, especie, edad, salud, peso, color) {
+        return new Animal(nombre, especie, edad, salud, peso, color);
+    }
+</script>
+
+</html>

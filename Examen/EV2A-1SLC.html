@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--Autor Sergio Luque Chacon-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>salidaEtapa</title>
+</head>
+
+<body>
+    <h3 id="pantalla" style="text-align: center;">Espere a que empiece la carrera</h3>
+</body>
+<script>
+    //Constante del elemento HTML con id pantalla
+    const pantalla = document.getElementById("pantalla");
+    let corredor = 1;
+
+    /*
+    Creamos un intervalo para que al pasar un minuto pinte por pantalla al corredor
+    que le toca y actualice el valor para que al siguiente minuto salga el siguiente
+    */
+    let intervalo = setInterval(initSalida, (1000 * 60));
+    function initSalida() {
+        if (corredor > 25) {
+            pantalla.textContent = "Ya han salido todos los corredores. ¡Suerte!";
+            clearInterval(intervalo);
+        }
+        else pantalla.textContent = "Participante " + (corredor++) + " ¡Ya!";
+    }
+</script>
+
+</html>
